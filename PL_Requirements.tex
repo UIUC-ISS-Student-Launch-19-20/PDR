@@ -5,6 +5,24 @@ During the boost, coast, and the majority of the launch vehicle's flight, the pa
 This chapter will be structured as follows: Sec.~\ref{PL:Deployment:Requirements} details the requirements the payload is to satisfy given the overall mission and top-level requirements, followed by a trade-off study regarding the means of securement in Sec.~\ref{PL:Deployment:Securement}, as well as the possible deployment modes in Sec.~\ref{PL:Deployment:Deployment}. Finally, the leading design is presented in Sec.~\ref{PL:Deployment:LeadingDesign} in reference to the foregoing trade-off studies.
 
 This section details the various requirements to which the payload deployment scheme must abide. Specifically, two forms of requirements are identified: top-level requirements and team-derived requirements. The first are requirements either imposed by the competition, or legislation that is in effect at the time of launch and operations. The second form of requirements pertain to what the team perceives to be of importance in assuring mission success and robustness.
+\section{Safety-Based Requirements}
+Throughout the mission, the \gls{uav} will encounter a number of varied tasks that must be completed sequentially so as to satisfy the mission objectives. As such, it is natural to define a number of regimes in which the vehicle must operate, as these dictate the operational protocols that are to be effectuated. This chapter details these operational regimes, including the pertinent operational protocols.
+
+Throughout stand-by, launch and passive descent, referred to as 'transit', the \gls{uav} will assume a low-power mode, periodically sending status updates and seeking connection with a ground station. This passive mode stems from multiple considerations. First, given the limited power supply, as much power as possible is to be saved will still maintaining a connection with the \gls{uav}. Second, by \gls{faa} regulations, the \gls{uav} may only be operated below \SI{400}{\feet} in \gls{los}\footnote{FAA Reauthorization Act of 2018 \S 346(b.2.C), 49 U.S.C. \S 44806} \citep{FederalAviationAdministration2018}. To ensure that no active operation takes place above this ceiling, the vehicle will restrict its operations by considering its current altimeter reading as a locking mechanism. This `altitude lock' constitutes the transit phase.
+
+From the FAA Reauthorization Act of 2018, the following pertinent regulations may be found. The \gls{uav} must have a gross weight under \SI{4.4}{\poundm}, and must be operated:
+
+\begin{enumerate}[noitemsep, label=(\roman*)]
+	\item within or beyond visual \gls{los} of the operator;
+	\item less than \SI{400}{\feet} above ground;
+	\item during daylight conditions;
+	\item within Class G airspace; and
+	\item outside of 5 statute miles from any airport, heliport, seaplane base, spaceport, or other location with aviation activities.
+\end{enumerate}
+
+Regarding points (iv) and (v), it is found that the closest airport is the Hazel Green airport. However, the launch site, Bragg Farms, is located outside of the Class E airspace, thus respecting the Class G airspace requirement  
+
+ Given the fact that the payload will only be deployed upon being granted permission from the \gls{rso}, it is of importance to achieve a timely response in the event of late notification. In addition, proper coordination with the avionics systems is of importance, as solenoid disengagement and winch lowering must be followed by \gls{uav} arm deployment in close succession.
 
 \section{Top-level requirements}
 
