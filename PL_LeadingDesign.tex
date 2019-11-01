@@ -15,7 +15,22 @@
 	\section{Drone Structures}\label{PL:Design:Structures}
 		\subsection{Arm Configuration}
 			The drone will have four arms that rotate vertically such that the arms of the drone fit inside the fairing of the upper body tube. One other drone configuration was considered where the drone arms rotated sideways into itself, however this design was rejected primarily due to the inability for this configuration to fit inside the fairing. As a result, the vertical swinging arms chosen for the drone. These arms are placed on top of a hinge on the base of the drone with "bushings" placed on the ends. These bushings will align with aluminum poles connected to the base of the fairing which will make up the deployment system, which is described in another section.
-
+			\begin{table}[]
+                \label{vertical unfolding arms}
+                {\footnotesize
+                \caption{Risk Matrix for Vertical Unfolding Arms}
+                \centering
+                \begin{tabularx}{\linewidth}{XXXlXl}
+                \toprule
+                \textbf{Risk}                                            & \textbf{Cause}                                                                                                                 & \textbf{Impact}                                                                                                                           & \textbf{RBM}  & \textbf{Mitigation}                                                                                                                                                                                     & \textbf{RWM} \\
+                \midrule
+                Incomplete arm deployment & Insufficient potential energy storage by the spring mechanism and misalignment of locking mechanism & Ranges from UAV flight failure and possible damage to the Avionics due to falling & \cellcolor{red!25} 1C & 1) Ensure to choose the right springs that can provide enough energy \newline 2) Making sure the locking mechanism is fully secured before launch \newline 3) Right material selection to prevent plastic deformation & \cellcolor{orange!25} 3C \\
+                Failure to completely deploy drone due to frictions created by the guide rails & Incorrect selection of springs and guide rail material that could generate enough friction force to prevent UAV deployment & Being unable to retrieve the “ice samples” and cause the incomplete of the mission & \cellcolor{red!25} 2B & 1) Conduct ample material analysis on the selection and choosing materials having the lowest friction such as steel or aluminum \newline 2) Conduct multiple rounds of testing before manufacturing & \cellcolor{green!25} 3D \\
+                Plastic deformation of the structure at joints & Strong forces from the spring loaded arms and gravity assisted arm deployment creating significant shearing and tension at joints & The falling or partial detachment of one or multiple arms causing potential crashing of UAV & \cellcolor{orange!25} 2D & 1) Create sufficient damping systems to mitigate the unfolding forces \newline 2) Using carbon fiber components that have strong tensile strengths & \cellcolor{green!25} 3E \\
+                \bottomrule
+                \end{tabularx}
+                }
+            \end{table}
 		\subsection{Landing Legs}
 			The drone will additionally have landing legs that are attached mechanically to the arms of the drone. Each leg will be attached along the arm close to the rotors. Another bar will be attached from the base plate of the drone, connecting to the leg, forming a four-bar linkage. This allows the legs of the drone to forever be perpendicular to the ground no matter the direction that the arm faces. This also allows them to fold up into the body tube without the need for additional servo motors or electrical components. Another design of static legs attached to the base plate of the drone was considered, but the distance between legs were so small that the drone was unstable, taking into account the relatively large length of the arm.
 	
