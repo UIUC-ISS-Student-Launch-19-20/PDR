@@ -52,7 +52,20 @@
 			\section{Drone Structures}\label{PL:Design:Structures}
 			\subsection{Arm Configuration}
 				The drone will have four arms that rotate vertically such that the arms of the drone fit inside the fairing of the upper body tube. One other drone configuration was considered where the drone arms rotated sideways into itself, however this design was rejected primarily due to the inability for this configuration to fit inside the fairing. As a result, the vertical swinging arms chosen for the drone. These arms are placed on top of a hinge on the base of the drone with "bushings" placed on the ends. These bushings will align with aluminum poles connected to the base of the fairing which will make up the deployment system, which is described in another section.
-				%%HERE
+				\begin{table}[H]
+					{\footnotesize
+					\caption{Risk Matrix for Retractable Landing Mechanism}
+					\centering
+					\begin{tabularx}{\linewidth}{XXXlXl}
+					\toprule
+					Risk & Cause & Impact & RBM & Mitigation & RWM \\ \midrule
+					Incomplete landing leg unfolding & Miscalculations of the Parallel Four Bar Linkage dimensions & Instability of the UAV during “ice sample” retrieval and risk of unable to retrieve the desired amount of sample & \cellcolor{orange!25} 3C & 1) Repetitive testing and prototyping of the RLM system 2) Using simple mechanical properties and reduce system complexities & 4D \\
+					Horizontal instability & Lack of horizontal constraints and supports at various joints & Potential UAV body tipping and leg failure which leads to mission incompletion & \cellcolor{orange!25} 2C & 1) Creating horizontal support at joints 2) Potential cone shape padding at landing leg roots & 4E \\
+					Plastic deformation of legs during landing & Insufficient material strength of legs and shearing caused by moments about joints due to weight & One or multiple landing leg failures which could result in mission incompletion & \cellcolor{green!25} 2E & 1) Ample material testing and research 2) Continuous stress and shear testing in the construction process & 4E \\
+					Leg joint failures during flight & Vibrations throughout the rocket during ascent and ejection charge initiation & Possible damage to landing legs and increase in horizontal instabilities & \cellcolor{green!25} 3D & 1) Vibration testing to alleviate the negative effects during ascent 2) Repetitive testing of joint securement system & 4E \\
+					\bottomrule
+				 \end{tabularx}
+				 }
 		\subsection{Ice Recovery and Mobility Agent}
 			The pin joint design was chosen because the design has the best sturdiness, manufacturability, and because of its absence of a sliding motion. The bolt in the pin joint mechanism makes the retrieval mechanism sturdy in the direction going into and out of the page, perpendicular to the scooping motion. The rod connecting the drone to the scoop mechanism keeps a point on the scoop fixed to the drone at all times so the scoop is not flimsy. The connecting rod creates sturdiness in the direction parallel to the scooping motion because the rod is a fixed length. This allows control over how much the scoop can open or close based on how high the bottom of the connecting rod is on the bolt. Every part on the pin joint mechanism is thick with few potential points for failure. 
 
