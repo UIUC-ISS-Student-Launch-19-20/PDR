@@ -1,3 +1,4 @@
+
 \chapter{Avionics}
 \section{Requirements}
 The avionics subteam is responsible for completion of a multitude of critical objectives. Specifically, the avionics team was charged with the following: first, the team is responsible for transmitting the deployment signal to the \gls{uav} after receiving clearance from the \gls{rso} so that the rocket’s payload can be ejected. Moreover, the team must know the exact altitude of the rocket through the use of a commercially available altimeter.
@@ -17,7 +18,7 @@ In order to fulfill the aforementioned requirements and ensure mission success. 
 The control board for telemetry and UAV Aerial Deployment System will play a critical importance. ISS has had prior success with the Arduino microcontroller, but the Raspberry PI was also considered as it provided greater processing power and increased control. The trade-off between the two systems was carefully considered as it constituted a major design decision. 
 	The Arduino was initially considered because it has a proven track record with ISS. It’s simplicity and ease-of-use provides the team with flexibility, and there is a vibrant online community that through the use of forums and other educational websites provides guidance and support to other users of the Arduino development platform. Moreover, Arduino is easier to understand and program as it uses a modified version of C++, which is a common programming language, in a native, self-contained integrated development environment (IDE) known as the Arduino IDE. 
 	There are multiple versions of the Arduino platform. One mode of variation is the size of the Arduino module. In particular, two versions of the Arduino platform with through-hole mounting capability that were considered were the Arduino Micro and Arduino Nano. The two are similar in size and mass with the latter being slightly smaller (48mm vs 45mm, respectively) and lighter (13g vs 7g). The critical difference was the power delivery capability between the two platforms. The Arduino Nano is capable of delivering twice the current per pin at 40 mA compared to the Micro’s limitation of 20 mA, with the recommended current draw being half the maximum. This limitation would severely limit the team’s ability to power additional components with the Arduino’s regulated 5 and 3.3 volt supply rails, which would require that additional circuitry be introduced to power the components. It was therefore, decided that the Arduino Nano would be the Arduino of choice. The Raspberry PI was also considered as an alternative. \\\\
-The Raspberry Pi is a flexible, general purpose computer with exponentially higher processing power and memory capacity than the Arduino. However, the Raspberry Pi’s additional power and multi-platform support means that the implementation of the requisite functionality would be harder and expose the team to a greater risk of software related errors. The team therefore considered if the Arduino processing capabilities would sufficient for the telemetry and data logging needs. 
+The Raspberry Pi is a flexible, general purpose computer with exponentially higher processing power and memory capacity than the Arduino. However, the Raspberry Pi’s additional power and multi-platform support means that the implementation of the requisite functionality would be harder and expose the team to a greater risk of software related errors. The team therefore considered if the Arduino processing capabilities would be sufficient for the telemetry and data logging needs. 
 	The functionality required from the micro-controller essentially remains unchanged from the proposal. It is required to control and preferably power the communication system and additional data logging system. These requirements can be reasonably met and exceeded by both platforms. Therefore, the Arduino was selected as the team was more experienced with the platform. 
 The team initially wanted to incorporate an Inertial Measurement Unit (IMU) in the sensor deployment as it would provide useful data about the rocket in flight. The IMU measures linear and rotational accelerations and this data is logged to onboard storage. The team had multiple IMUs on hand. The LSM9D51 by iNEMO was the most fully featured IMU owned by the team. Because ISS has had prior success using this unit, the team was actively considering it. In addition to the LSM9D51, the team also considered purchasing a new IMU, the BOSCH BNO055. The conclusion, which will be explored in greater detail in the following paragraphs, are as follows: the BNO055 does not warrant purchase as its expanded feature set does not justify the financial cost and risk of deploying a new component.  
 From a functional perspective, the LSM9D51 and the BNO055 had an accelerometer, a gyroscope, and a magnetometer and can therefore read similar sensor data. In terms of data transfer protocols, the BNO055 supports the (Inter-Integrated Circuit) I2C protocol, while the LSM9D51 can also support the Serial Peripheral Interface protocol. This did not significantly influence the selection of IMU as the I2C is far more versatile as it doesn’t require separate chip select lines, and its lower data transfer rates and half-duplex nature is of little importance to the overall functionality of an IMU that does not require significant bandwidth.\\\\
@@ -63,57 +64,32 @@ In order to provide additional redundancy, the team decided to include two TeleM
         \includegraphics[width=\linewidth]{img/AV/StratoLogger.png}
         \caption{Stratologger Wiring Block Diagram}
     \end{subfigure}
-    \caption{(a) HC-12 and Arduino Configuration with External Power, (b) Statologger Block Diagram}
+    \caption{(a) HC-12 and Arduino Configuration with External Power, (b) Stratologger Block Diagram}
 \end{figure}
 
-
-\begin{table}[htbp]
-    \centering
-    \caption{Avionics Failure Modes}
-    \begin{tabularx}{\linewidth}{X l l X}
-        \toprule
-        \textbf{Failure Modes} & \textbf{Likelihood} & \textbf{Impact} & \textbf{Mitigation approach} \\
-        \midrule
-        E-match system failure & 1     & 4     & Risk is minimized by using ematches in quadruply redundant system. \\
-        Either parachute deploys prematurely in flight & 1     & 3     & The deployment system will be tested prior to launch, and feature reliable components.  \\
-        Either parachute deploys prematurely on launch pad & 1     & 4     & A mechanical arming switch will be installed that interrupts the system's access to power to ensure that the black powder charges deploy.  \\
-        Altimeter brown or black-out & 2     & 3     & The system will be designed to be tolerant to power loss. Specifically, the stratologger was selected to because of its two second brown out protection \\
-        Communications failure & 3     & 3     & The communication system will use commericially available radios with specifications that far exceed the required range and throughput. The system will be shielded against electromagnetic interference, and the radios will operate on clear channels. \\
-        Short circuit in the avionics system & 1     & 3     & The team will perform exahustive testing of avionics systems before use in rocket. The team will also use multimeters to check for short circuits or ground faults.  \\
-        Battery failure (excluding imeters) & 1     & 2     & The team will use a multimeter to inspect the batteries and additional testing of avionics systems before final use. The batteries will be sized appropriately with a large tolerance to ensure that launch delays do not impact the rocket. \\
-        Disconnection of soldered connections, caused by flight and launch forces. & 3     & 2     & The team will ensure that solder joints are secured, and is investigating the use of a PCB which would strongly mitigate the risk. \\
-        Damage to the circuit board due to launch forces & 2     & 2     & The circuit board will have the necesitated structural integrity to not be damaged due to flight forces. Moreover, the team will avoid over burdening the connections with large components. \\
-    \bottomrule
-    \end{tabularx}%
-    \label{tab:Avionics:FMEA}%
-  \end{table}%
   \begin{table}[htbp]
     \centering
-    \caption{Add caption}
-    \begin{tabularx}{\linewidth}{X l X}
-  \cmidrule{1-1}\cmidrule{3-3}    \rowcolor[rgb]{ 1,  0,  0} {\textcolor[rgb]{ 1,  1,  1}{\textbf{Failure Modes}}} &{\textcolor[rgb]{ 1,  1,  1}{\textbf{RAC}}} & \textcolor[rgb]{ 1,  1,  1}{\textbf{Mitigation approach}} \\
-  \cmidrule{2-3}    \textbf{E-match system failure} & \textbf{1E} & Risk is minimized by using ematches in quadruply redundant system. \\
-      \midrule
-      \rowcolor[rgb]{ 1,  .882,  .8} \textbf{Either parachute deploys prematurely in flight} & \textbf{2E} & The deployment system will be tested prior to launch, and feature reliable components.  \\
-      \midrule
-      \textbf{Either parachute deploys prematurely on launch pad} & \textbf{1E} & A mechanical arming switch will be installed that interrupts the system's access to power to ensure that the black powder charges deploy.  \\
-      \midrule
-      \rowcolor[rgb]{ 1,  .882,  .8} \textbf{Altimeter brown or black-out} & \textbf{2D} & The system will be designed to be tolerant to power loss. Specifically, the stratologger was selected to because of its two second brown out protection \\
-      \midrule
-      \textbf{Communications failure} & \textbf{3D} & The communication system will use commericially available radios with specifications that far exceed the required range and throughput. The system will be shielded against electromagnetic interference, and the radios will operate on clear channels. \\
-      \midrule
-      \rowcolor[rgb]{ 1,  .882,  .8} \textbf{Short circuit in the avionics system} & \textbf{3D} & The team will perform exahustive testing of avionics systems before use in rocket. The team will also use multimeters to check for short circuits or ground faults.  \\
-      \midrule
-      \textbf{Battery failure (excluding altemeters)} & \textbf{1D} & The team will use a multimeter to inspect the batteries and additional testing of avionics systems before final use. The batteries will be sized appropriately with a large tolerance to ensure that launch delays do not impact the rocket. \\
-      \midrule
-      \rowcolor[rgb]{ 1,  .882,  .8} \textbf{Disconnection of soldered connections, caused by flight and launch forces.} & \textbf{3C} & The team will ensure that solder joints are secured, and is investigating the use of a PCB which would strongly mitigate the risk. \\
-      \midrule
-      \textbf{Damage to the circuit board due to launch forces} & \textbf{2D} & The circuit board will have the necesitated structural integrity to not be damaged due to flight forces. Moreover, the team will avoid over burdening the connections with large components. \\
+    \caption{Failure Modes and Risk Analysis}
+    \begin{tabularx}{\linewidth}{X >{\centering\arraybackslash}m{1in} X}
+    \toprule
+    \textbf{Failure Modes} & \textbf{RAC} & \textbf{Mitigation approach} \\
+    \midrule
+    \renewcommand{\arraystretch}{1.5}%
+    \ E-match system failure & \cellcolor{green!25} \textbf{\newline \newline 1E} 
+  & Risk is minimized by using ematches in a fully redundant system. \\
+  Either parachute deploys prematurely in flight & \cellcolor{green!25}\textbf{\newline \newline \newline 2E} & The deployment system will be tested prior to launch, and feature reliable components.  \\
+  Either parachute deploys prematurely on launch pad & \cellcolor{green!25}\textbf{\newline \newline \newline 1E} & A mechanical arming switch will be installed that interrupts the system's access to power to ensure that the black powder charges deploy.  \\
+  Altimeter brown or black-out & \cellcolor{orange!25}\textbf{\newline \newline \newline \newline 2D} & The system will be designed to be tolerant to power loss. Specifically, the stratologger was selected because of its two second brown out protection. \\
+  Communications failure & \cellcolor{orange!25}\textbf{\newline \newline \newline \newline \newline 3C} & The communication system will use commericially available radios with specifications that far exceed the required range and throughput. The system will be shielded against electromagnetic interference, and the radios will operate on clear channels. \\
+  Short circuit in the avionics system & \cellcolor{green!25}\textbf{\newline \newline 3D} & The team will perform exahustive testing of avionics systems before use in rocket. The team will also use multimeters to check for short circuits or ground faults.  \\
+  Battery failure (excluding altemeters) & \cellcolor{orange!25}\textbf{\newline \newline  \newline \newline  1D} & The team will use a multimeter to inspect the batteries and additional testing of the avionics systems before final use. The batteries will be sized appropriately with a large tolerance to ensure that launch delays do not impact the rocket. \\
+  Disconnection of soldered connections, caused by flight and launch forces. & \cellcolor{orange!25}\textbf{\newline \newline \newline 3C} & The team will ensure that solder joints are secured, and is investigating the use of a PCB which would strongly mitigate the risk. \\
+
       \bottomrule
       \end{tabularx}%
     \label{tab:addlabel}%
   \end{table}%
-  
 
   
+
 
