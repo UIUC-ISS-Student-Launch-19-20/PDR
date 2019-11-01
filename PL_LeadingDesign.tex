@@ -14,10 +14,10 @@
 
 	\section{Drone Structures}\label{PL:Design:Structures}
 		\subsection{Arm Configuration}
-			This is a filler paragraph
+			The drone will have four arms that rotate vertically such that the arms of the drone fit inside the fairing of the upper body tube. One other drone configuration was considered where the drone arms rotated sideways into itself, however this design was rejected primarily due to the inability for this configuration to fit inside the fairing. As a result, the vertical swinging arms chosen for the drone. These arms are placed on top of a hinge on the base of the drone with "bushings" placed on the ends. These bushings will align with aluminum poles connected to the base of the fairing which will make up the deployment system, which is described in another section.
 
 		\subsection{Landing Legs}
-			This is a filler paragraph
+			The drone will additionally have landing legs that are attached mechanically to the arms of the drone. Each leg will be attached along the arm close to the rotors. Another bar will be attached from the base plate of the drone, connecting to the leg, forming a four-bar linkage. This allows the legs of the drone to forever be perpendicular to the ground no matter the direction that the arm faces. This also allows them to fold up into the body tube without the need for additional servo motors or electrical components. Another design of static legs attached to the base plate of the drone was considered, but the distance between legs were so small that the drone was unstable, taking into account the relatively large length of the arm.
 	
 		\subsection{Ice Recovery and Mobility Agent}
 		The pin joint design was chosen because the design has the best sturdiness, manufacturability, and because of its absence of a sliding motion. The bolt in the pin joint mechanism makes the retrieval mechanism sturdy in the direction going into and out of the page, perpendicular to the scooping motion,  when looking at Figure INSERT FIGURE OF CAD OF PIN JOINT. The rod connecting the drone to the scoop mechanism keeps a point on the scoop fixed to the drone at all times so the scoop is not flimsy. The connecting rod creates sturdiness in the direction parallel to the scooping motion because the rod is a fixed length. This allows control over how much the scoop can open or close based on how high the bottom of the connecting rod is on the bolt. Every part on the pin joint mechanism is thick with few potential points for failure. 
@@ -46,4 +46,12 @@
 		Ultimately, the Navio2’s reliability surpassed the Pixhawk’s because of the Navio2’s safer integration thanks to the extensive testing that third party organizations, such as Navio, have invested into their own products. These factors were all weighted accordingly in INSERT TABLE HERE. The Navio2 was therefore selected as the flight controller most fitting for the mission parameters. 
 
 		\subsection{Computer Vision}
-			This is a filler paragraph
+		The team will be investigating an algorithmic and machine learning based approach of integrating computer vision in the vehicle’s guidance system. 
+
+The team’s next steps towards deciding the computer vision implementation is to determine which computer vision method will control the drone. The team plans to start by programming both the algorithmic and deep learning approaches to computer vision, possibly through the use of the OpenCV or TensorFlow libraries on Python. Then, after both methods are programmed, the team aims to test them on the UAV.. This can be done by setting up an excavation area similar to the one to be used in the competition. Once the UAV is released, it should be able to navigate to the excavation area autonomously. Further extensive testing can be accomplished by putting “ice” samples into the excavation area and varying the ice depth at different points. Theoretically, once the drone reaches the excavation site, it should be able to recognize where the ice depth is greatest and then approach the site and retrieve the sample.
+
+The final decision of which approach to implement for the competition will be based off of the results of these trials. The team will be testing for factors such as computational load, accuracy, speed, and reliability amongst others. The computer vision method with the best results will be further refined and used for the competition.
+
+Using computer vision to guide the drone has numerous risks associated with it, as shown in Figure. With careful planning and testing, these risks can be accounted for to increase the probability of mission success.
+
+INSERT FIGURE HERE
