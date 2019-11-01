@@ -45,10 +45,14 @@
                 \bottomrule
                 \end{tabularx}
                 }
-            \end{table}
+			\end{table}
+			
 		\subsection{Landing Legs}
 			The drone will additionally have landing legs that are attached mechanically to the arms of the drone. Each leg will be attached along the arm close to the rotors. Another bar will be attached from the base plate of the drone, connecting to the leg, forming a four-bar linkage. This allows the legs of the drone to forever be perpendicular to the ground no matter the direction that the arm faces. This also allows them to fold up into the body tube without the need for additional servo motors or electrical components. Another design of static legs attached to the base plate of the drone was considered, but the distance between legs were so small that the drone was unstable, taking into account the relatively large length of the arm.
-	
+			\section{Drone Structures}\label{PL:Design:Structures}
+			\subsection{Arm Configuration}
+				The drone will have four arms that rotate vertically such that the arms of the drone fit inside the fairing of the upper body tube. One other drone configuration was considered where the drone arms rotated sideways into itself, however this design was rejected primarily due to the inability for this configuration to fit inside the fairing. As a result, the vertical swinging arms chosen for the drone. These arms are placed on top of a hinge on the base of the drone with "bushings" placed on the ends. These bushings will align with aluminum poles connected to the base of the fairing which will make up the deployment system, which is described in another section.
+				%%HERE
 		\subsection{Ice Recovery and Mobility Agent}
 		The pin joint design was chosen because the design has the best sturdiness, manufacturability, and because of its absence of a sliding motion. The bolt in the pin joint mechanism makes the retrieval mechanism sturdy in the direction going into and out of the page, perpendicular to the scooping motion. The rod connecting the drone to the scoop mechanism keeps a point on the scoop fixed to the drone at all times so the scoop is not flimsy. The connecting rod creates sturdiness in the direction parallel to the scooping motion because the rod is a fixed length. This allows control over how much the scoop can open or close based on how high the bottom of the connecting rod is on the bolt. Every part on the pin joint mechanism is thick with few potential points for failure. 
 
@@ -89,7 +93,23 @@
 		The Pixhawk and Navio2 were both viable controllers, each with their own benefits, such as higher reliability due to their communication with a Raspberry Pi and relatively easy computer vision integration because of the Raspberry Pi’s systems. One important difference between the Pixhawk and the Navio2 was how easy a computer vision system would be to manage. Although both systems have been used extensively for computer vision, the Pixhawk would require manual setup hardware-wise and with configuration files to establish a UART bridge. The Navio2, however, would require minimal setup due to its design including the Raspberry Pi as part of the flight controller. Both controllers would be able to provide the adequate amount of power that a computer vision guidance system would need, because of the Raspberry Pi’s high computing power and memory. 
 		
 		Ultimately, the Navio2’s reliability surpassed the Pixhawk’s because of the Navio2’s safer integration thanks to the extensive testing that third party organizations, such as Navio, have invested into their own products. The Navio2 was therefore selected as the flight controller most fitting for the mission parameters. 
-
+		
+		\begin{table}[H]
+			\centering
+			\caption{Flight Controller Fact Sheet}
+			\label{tab: flight controller}
+			\begin{tabularx}{1\linewidth}{X X X X}
+				\toprule
+				Factor & ArduPilot & Pixhawk + RaspberryPi & Navio2 \\
+			   \midrule
+			   	Size (mm) & 70.5 x 45 x 10 & 44 x 84 x 12 & 55 x 65 \\
+				Mass (g) & 31.0 & 15.8 & 23.0 \\
+				Ease of Integration & 8-bit processor requires aid of companion \mbox{computer} and several peripheral sensors & Requires configuration of linux files to set up UART bridge & Very easy due to extensively tested integration procedures\\
+				Power \newline consumption (W) & 0.5 & 3.6 & 2.79 \\
+				Reliability & No fall back option & Failures can occur in UART connection & Reliable integration due to 3rd-party product \mbox{design} \\
+				\bottomrule
+			\end{tabularx}
+		\end{table}
 		\subsection{Computer Vision}
 		The team will be investigating an algorithmic and machine learning based approach of integrating computer vision in the vehicle’s guidance system. 
 
@@ -98,4 +118,20 @@ The team’s next steps towards deciding the computer vision implementation is t
 The final decision of which approach to implement for the competition will be based off of the results of these trials. The team will be testing for factors such as computational load, accuracy, speed, and reliability amongst others. The computer vision method with the best results will be further refined and used for the competition.
 
 Using computer vision to guide the drone has numerous risks associated with it. With careful planning and testing, these risks can be accounted for to increase the probability of mission success.
-
+\begin{table}[]
+	\label{computer vision}
+	{\footnotesize
+	\caption{Risk Matrix for Computer Vision}
+	\centering
+	\begin{tabularx}{\linewidth}{XXXlXl}
+	\toprule
+	\textbf{Risk}                                            & \textbf{Cause}                                                                                                                 & \textbf{Impact}                                                                                                                           & \textbf{RBM}  & \textbf{Mitigation}                                                                                                                                                                                     & \textbf{RWM} \\
+	\midrule
+	Algorithm does not recognize excavation site & 1) Incorrect implementation of logic in algorithm relating to classification of excavation sites \newline 2) Not enough images classifying excavation sites are fed to train the neural network to a reliable state & UAV does not navigate to excavation site with complete accuracy & \cellcolor{red!25} 2A & 1) Conduct extensive testing to ensure that algorithm recognizes excavation site accurately and reliably \newline 2) Algorithm reverts to GPS based positioning to navigate to excavation area if excavation site is not recognized. & \cellcolor{green!25} 3D \\
+	Algorithm falsely detects an excavation area & 1) Incorrect implementation of logic in algorithm relating to differentiation between excavation sites \newline 2) Not enough images are fed to train the neural network reliably & UAV fails to navigate to correct excavation site and flies to wrong site instead & \cellcolor{red!25} 2A & 1) Conduct extensive testing to ensure that algorithm recognizes excavation site accurately and reliably without detecting incorrect sites \newline 2) Algorithm is manually reverted to GPS based positioning to navigate to correct excavation area & \cellcolor{orange!25} 3C \\
+	Algorithm does not run at all or runs slowly & 1) Flight computer is disconnected from power source \newline 2) Algorithm is inefficient through redundant computation or overuse of storage & UAV is not able to recognize and navigate to the excavation site & \cellcolor{orange!25} 2C & 1) Ensure UAV is connected securely to power source, and is able to stay secured during flight \newline 2) Test algorithm during flight to ensure it does not overuse processing power or storage & \cellcolor{green!25} 2E \\
+	Algorithm causes Raspberry Pi to malfunction & 1) Algorithm encounters stimulus outside of its training bounds \newline 2) Inaccurate data is fed to algorithm during flight. & UAV malfunctions and loses ability to stay aloft & \cellcolor{red!25} 1C & 1) Conduct extensive testing and identify when Raspberry Pi malfunctions \newline 2) Identify edge cases that may cause malfunctions and account for them in algorithmic approach \newline 3) Catch errors in runtime and deal with accordingly to maintain mission feasibility & \cellcolor{green!25} 1E \\
+	\bottomrule
+	\end{tabularx}
+	}
+\end{table}
