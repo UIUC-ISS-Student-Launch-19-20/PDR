@@ -93,8 +93,21 @@
         
         The CO\textsubscript{2} deployment system will be located in the nose cone itself, however the commercial altimeter used to trigger the deployment system will be located on the lower bulkhead of the payload bay. In order to connect the pyro charge that will trigger the CO\textsubscript{2} system to the altimeter, a two pin JST connector detailed in FIGURE (INSERT FIGURE HERE) will be utilized. This JST connector is intended to be pulled apart at the moment of nose cone ejection by the force of the ejection itself. The use of this connector ensures a reliable electrical connection between the altimeter and the CO\textsubscript{2} system up until nose cone ejection. Tug testing will be conducted to ensure the connectors will reliably separate. 
 
-        
+        INSERT FIGURE HERE
 
+        The size of the canister needed can be determined based on a sizing chart from Tinder Rocketry. However, given the complex geometry of the upper airframe, the team decided to perform volumetric calculations to determine the amount of CO\textsubscript{2} needed to pressurize the chamber and separate the nose cone. The nose cone itself has an ogive shape with dimensions shown in CHART REFERENCE.  Based on this information, volume calculations of the nose cone were done by integrating the tangent ogive formula.
+
+        \begin{subequations}
+            \begin{equation}
+                \rho = \frac{R^2 + L^2}{2 R}
+            \end{equation}
+            \begin{equation}
+                y = \sqrt{\rho^2 - (L - x)^2} + R - \rho
+            \end{equation}
+            \begin{equation}
+                V = \pi \int_{0}^{L} y^2 dx
+            \end{equation}
+        \end{subequations}
 \section{Payload Structures}\label{PL:Tradeoffs:Structures}
 	\subsection{Landing Leg Design}
 		In order to create a safe and gentle touch down for the UAV before initiating task-specific maneuvers, a set of landing systems are needed. The team came up with two different approaches that result in two dissimilar ways to store the landing legs and each of which has its stability factor which will be analyzed in the following paragraphs alongside with risk analyses.
