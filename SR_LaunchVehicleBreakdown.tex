@@ -3,11 +3,17 @@
 \section{Launch Vehicle Overview}
 The launch vehicle will be 7 feet and 11 inches tall with a diameter transitioning from 4 to 6 inches. It will consist of three distinct sections: booster tube, body tube and interstage, and nosecone. The total mass of the launch vehicle will be 24.7 pounds. The chosen motor is the Aerotech K780R-P which will take the launch vehicle to an apogee of 4,450 feet above ground level. At apogee, a 20 inch drogue parachute will be deployed and the launch vehicle will fall under this parachute until 800 feet. . At 800 feet above the ground, a 70-inch main parachute will deploy until the launch vehicle lands safely. The nose cone will separate at 400 feet and descend with its own parachute, exposing the payload bay and allowing the UAV to deploy. Further details are explained in other portions of this preliminary design review.
 
+\FloatBarrier
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 15cm, height = 20cm]{Masses.png}
+    \caption{Predicted in-plane drift for various wind speeds and launch angles (all under spherical Earth approximation condition)}
+    \label{fig:my_label}
+\end{figure}
+
     \subsection{Mission Statement}
 The rocket will ascend to a predefined altitude and return to the ground under parachutes. During descent, a drone will be deployed that is capable of detaching and flying to a target area to retrieve samples. The entirety of the mission will be conducted in accordance with all rules set forth by NASA in the 2020 NASA Student Launch Handbook.
-
-    \subsection{Test Plan}
-    
+   
     
 
 \section{Booster Subsystem}
@@ -20,27 +26,7 @@ The fins are an aerodynamic structure which collectively ensure stability and pa
     \subsection{Motor Selection}
 For the 2019-2020 Student launch competition, the team has chosen to use the AeroTech K780R-P motor. This motor satisfies all competition requirements since it keeps the target apogee within 3,500 feet and 5,500 feet above ground level, expels ammonium perchlorate composite propellant (APCP) during launch, has an impulse below the 5,120 Newton-Second limit, accelerates the launch vehicle beyond 52 feet per second upon exiting the rail, does not expel titanium sponges, is not a hybrid motor, is not clustered, and will not propel the launch vehicle above Mach 1 based on simulations. The motor is also able to be ignited using a 12-volt firing system and does not utilize any forward firing motors. According to updated OpenRocket simulations and the characteristics of the selected motor, the vehicle’s thrust-to-weight ratio is 8.5:1. Thrust-to-weight ratios greater than 5 are typically considered safe for high-powered rockets.
 
-Performance specifications referred to in the table below and a thrust curve diagram for the K780R-P motor were found at thrustcurve.org. The motor reaches a maximum thrust of 216.9 pounds-force in about 1.15 seconds. The motor provides an average thrust of 175.4 pounds-force with a total burn time of 3.0 seconds.
-
-\begin{table}[]
-    {\footnotesize
-    \caption{Motor Comparisons}
-    \centering
-    \begin{tabularx}{\linewidth}{XXX}
-    \toprule
-     & AeroTech K780R & AeroTech K1000T & AMW K605RR \\ \midrule
-    Diameter (in.) & 2.95 & 2.95 & 2.95 \\
-    Length (in.) & 15.6 & 15.1 & 14.5 \\
-    Total Weight (lb) & 6.468 & 5.736 & 6.104 \\
-    Propellant Weight (lb) & 2.795 & 2.721 & 2.714 \\ \midrule
-    Average Thrust (lbf) & 175.4 & 239.6 & 136.0 \\
-    Max. Thrust (lbf) & 216.9 & 376.3 & 165.8 \\
-    Total Impulse (lbf-s) & 533.0 & 564.6 & 541.8 \\
-    Burn Time (s) & 3.0 & 2.4 & 4.0 \\
-    \bottomrule
-    \end{tabularx}
-    }
-\end{table}
+Performance specifications [TABLE BELOW] and a thrust curve diagram [FIGURE BELOW] for the K780R-P motor were found at thrustcurve.org. The motor reaches a maximum thrust of 216.9 pounds-force in about 1.15 seconds. The motor provides an average thrust of 175.4 pounds-force with a total burn time of 3.0 seconds.
 
 In summary, the AeroTech K780R-P motor was chosen because it satisfies all necessary requirements stated within the guidelines provided for the Student Launch Competition. Other motors such as the Aerotech K1000T-P and Animal Motor Works K605RR were considered in the final decision, but it was determined that Aerotech was the favorable brand due to Illinois Space Society’s previous success with them, and the K1000T-P proved to provide too much impulse and caused the apogee to exceed competition guidelines with the final design of the rocket. Additionally, when compared to the K1000T-P, the K780R-P has lower acceleration over a slightly longer burn time, meaning structural loads on the rocket and payload are reduced.
 
