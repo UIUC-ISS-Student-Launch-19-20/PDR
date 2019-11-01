@@ -5,7 +5,48 @@ The launch vehicle will be 7 feet and 11 inches tall with a diameter transitioni
 
     \subsection{Mission Statement}
 The rocket will ascend to a predefined altitude and return to the ground under parachutes. During descent, a drone will be deployed that is capable of detaching and flying to a target area to retrieve samples. The entirety of the mission will be conducted in accordance with all rules set forth by NASA in the 2020 NASA Student Launch Handbook.
-    \subsection{Computer Aided Design}
+    
+    \subsection{Mass Breakdown}
+\begin{tabularx}{0.8\linewidth}{X l}
+\hline
+\multicolumn{2}{*}{Mass Statement} \\
+\hline
+Component & Mass \\ \hline
+
+Nose Cone & Nose Cone & 0.81350478 \\ \hline
+\multirow{2}{*}{Fairing Tube} & Tube & .881848 \\
+ & Payload & 5.51156 \\ \hline
+
+\multirow{5}{*}{Shoulder/Transition} & Shoulder & 0.49383488 \\
+ & Avionics & 1.10231 \\
+ & Bulkhead & .100751134 \\
+ & Tube Coupler & 0.47178868 \\
+ & Altimeter & 0.0062390746  \\ \hline
+
+\multirow{3}{*}{Upper Body Tube} & Body Tube & 1.89376858 \\
+ & Big Parachute & 0.4078547 \\
+ & Shock Cord & 0.25794054 \\ \hline
+
+\multirow{5}{*}{Switch Band and Coupler} & Switch Band & 0.135363668 \\
+ & Tube Coupler & 0.5401319 \\
+ & Bulkhead & 0.26234978 \\ 
+ & Bulkhead & 0.26234978 \\
+ & Coupler Avionics & 1.10231 \\ \hline
+
+\multirow{11}{*}{Booster Tube} & Body Tube & 2.16493684 \\
+ & Fins & 0.7495708 \\
+ & Centering Rings & 0.186510852 \\
+ & Drogue & 0.037037616 \\
+ & Shock Cord & 0.25794054 \\
+ & Inner Tube & 0.41226394 \\
+ & Epoxy and Screws & 1.10231 \\
+ & Launch Lug & .01 \\
+ & Launch Lug & .01 \\
+ & Motor & 6.46835508\\
+ & (Motor Without Propellant) & (3.67289692) \\ \hline
+
+\hline
+\end{tabularx}
     
 
 \section{Booster Subsystem}
@@ -76,6 +117,31 @@ At first, the team investigated manufacturing the nose cone using resin and mold
 
     \subsection{Manufacturing}
     Initially, the team planned to manufacture the nose cone and interstage in-house. Manufacturing in-house would provide a learning experience for the Illinois Space Society as the society has never developed these parts before. In order to manufacture, the team would need to design a system which would allow for molding. The preliminary plan for doing this was as follows. Foam would be cut to the desired design using a current flowing through a wire, giving the exact shape of the nose cone and interstage. After this, layers of fiberglass resin would be added on top of the cut foam to form to the desired shape. The fiberglass would then be cured and hardened. Due to the team having no prior experience with in-house manufacturing and the amount of time this process would require, the team decided commercially buying a nose cone will save both time, effort, and energy that could be devoted to different aspects of the rocket.
+    
+    \begin{table}[]
+    \label{vertical unfolding arms}
+    {\footnotesize
+    \caption{Risk Matrix for Structure}
+    \centering
+    \begin{tabularx}{\linewidth}{XXXlXl}
+    \toprule
+    \textbf{Risk}                                            & \textbf{Cause}                                                                                                                 & \textbf{Impact}                                                                                                                           & \textbf{RBM}  & \textbf{Mitigation}                                                                                                                                                                                     & \textbf{RWM} \\ \midrule
+    3D printed interstage support strain & Forces experienced during launch procedures & Launch Vehicle Interstage may lose adhesion or crack under stress & \cellcolor{orange!25} 1D & The 3D print infill will be increased and will extra attachment point for reinforcement materials & \cellcolor{green!25} 1E \\
+    Launch lugs apply harmful torque to booster/body tube & Small attachment area at the tube & Tube would deform slightly at location of launch lug & \cellcolor{orange!25} 3C & The attachment area of the launch lug will be increased in order for torque to be evenly distributed & \cellcolor{green!25} 3E \\
+    Drogue fails to deploy & Ejection charge fails to fire & Launch Vehicle lands at a dangerous velocity & \cellcolor{red!25} 1C & Test ejection charge system for continuity before hand and use redundant charges and altimeters & \cellcolor{green!25} 1E \\
+    Main parachute fails to deploy & Defect in parachute release & Damage to booster and body tube of launch vehicle & \cellcolor{red!25} 1C & Test ejection charge system for continuity before hand and use redundant charges and altimeters & \cellcolor{green!25} 1E \\ \midrule
+    Fins shear off & Excessive aerodynamic forces during flight & Rocket loses stability & \cellcolor{orange!25} 1D & Fins will be attached inside to body tube using laminating epoxy to ensure resistance to aerodynamic shear forces & \cellcolor{orange!25} 1D \\
+    Nose cone separation fails & CO2 canister does not fire & Payload trapped in descending rocket & \cellcolor{orange!25} 2D & Ground testing and calculations for CO2 pressure and operation & \cellcolor{green!25} 2E \\
+    Nose cone parachute deployment fails & Parachute release either opens too early or not at all & Nose cone drifts too far or goes ballistic & \cellcolor{green!25} 3D & Pre-flight procedures include chute release as parachute packing procedure & \cellcolor{green!25} 3E \\
+    Motor retainer fails & Poorly secured & Motor falls out the bottom of the rocket & \cellcolor{red!25} 1C & Secure motor retainer to lower centering ring using epoxy while also ensuring to retainer cap is secure before launch & \cellcolor{green!25} 1E \\
+    Motor ignition fails & Igniter is not securely placed & Launch vehicle fail to launch & \cellcolor{green!25} 4B & Ensure igniter is placed as far up to motor as possible and review launch sequence beforehand & 4D \\
+    Launch Vehicle drifts excessively far into hazardous terrain & Main parachute deployment at apogee & Vehicle components are unrecoverable or require excessive time to locate & \cellcolor{orange!25} 2C & Model the vehicle’s flight characteristics and size parachutes appropriately to minimize drift distance. & \cellcolor{orange!25} 2D \\
+    Vehicle spins excessively during launch & Improperly aligned fins & Possible damage to sensitive internal components & \cellcolor{red!25} 2B & Be sure that fins are assembled adequately and use fin jig during construction to ensure vertical alignment & \cellcolor{green!25} 2E \\
+    Motor ignites prematurely & Igniter triggers prematurely and fuel grain is exposed to open flame & Vehicle launches unexpectedly & \cellcolor{red!25} 2B & Keep open flames away from launch vehicle at all times during setup and arm igniter immediately before launch & \cellcolor{green!25} 2E\\
+    \bottomrule
+    \end{tabularx}
+    }
+\end{table}
 
 Commercially buying a nose cone will allow more time for research in areas besides manufacturing. With deadlines such as the upcoming subscale launch in December, buying the nose cone will allow more time to complete the launch vehicle. The nose cone, which will be purchased from Madcow Rocketry, will be structurally sound as it is manufactured by professionals. The Illinois Space Society views the proven integrity of a commercial nose cone as a way to minimize risk because of the team’s lack of experience in nose cone manufacturing.
  
