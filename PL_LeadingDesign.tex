@@ -10,7 +10,22 @@
 
 			\subsection{Lowering Mechanism Release System}
 				To sever the winch line from the UAV, the team selected the method of burning a nylon string using an electric system. The other options were eliminated due to the complexity of the mechanical execution of the concepts; that is to say, the team feared that too many moving parts would lead to an overly complex release mechanism. The simplicity of severing a nylon string via heat appealed to the team because of its small risk of failure. The team plans on performing several rounds of tests to ensure that the electric system will be able to sever the nylon cord under any circumstances. 
-
+				\begin{table}[H]
+					\label{UAV Release Mechanism}
+					{\footnotesize
+					\caption{Risk Matrix for UAV Release Mechanism}
+					\centering
+					\begin{tabularx}{\linewidth}{XXXlXl}
+					\toprule
+					\textbf{Risk}                                            & \textbf{Cause}                                                                                                                 & \textbf{Impact}                                                                                                                           & \textbf{RBM}  & \textbf{Mitigation}                                                                                                                                                                                     & \textbf{RWM} \\
+					\midrule
+					Winch line becomes tangled around rocket during deployment & 1) Wind blows UAV or open rocket off-track \newline 2) Winch gets caught in the motors during deployment & UAV is not success-fully deployed; recovery of rocket is possibly comprom-ised & \cellcolor{orange!25} 2C & 1) Conduct extensive testing to ensure that release of winch line has adequate area \newline 2) Ensure using redundant systems that UAV is stable during descent from rocket body & \cellcolor{orange!25} 2D \\
+					Winch line is not completely severed & 1) Electric system is incapable of burning through the nylon cable \newline 2) Environmental effects on the nylon cable \newline 3) Positioning of cord relative to UAV doesn’t allow contact between cord and electric system & UAV is not success-fully deployed & \cellcolor{red!25} 2A & 1) Conduct extensive testing with electric systems and nylon cords to ensure the electric system is capable of severing the nylon cable & \cellcolor{orange!25} 2D \\
+					Winch does not lower UAV from the rocket & 1) Battery that powers the winch mechanism fails 2) Winch line is not properly coiled prior to launch \newline 3) Winch line becomes tangled within the fairing \newline 4) Drone gets jammed due to guide rails. & UAV is not success-fully deployed & \cellcolor{red!25} 2B & 1) Ensure soundness of electrical circuit upon which the winch mechanism is dependent \newline 2) Practice coiling of the nylon cord extensively prior to launch \newline 3) Verify the integrity of the coiling of the nylon cord multiple times prior to launch \newline 4) Minimize moving parts within the fairing, especially within the path that the cable will travel along 5) Test the alignment of the guide rails and cycle test lowering of the UAV, properly lubricate the rails and fasten the rails to the proper constraints & \cellcolor{orange!25} 2C \\
+					\bottomrule
+					\end{tabularx}
+					}
+				\end{table}
 
 	\section{Drone Structures}\label{PL:Design:Structures}
 		\subsection{Arm Configuration}
@@ -46,7 +61,24 @@
 		The next iteration of IRMA, featuring the worm gear mechanism, had several issues. The cost of the worm gear mechanism was too high for further consideration. In addition, the weight of the mechanism did not satisfy the mass budget for the UAV. 
 
 		After considering the restrictions of the other designs, the team has decided to move forward with the pin joint mechanism. Overall, the pin joint mechanism provides the most manufacturability and practicality of the considered designs. 
-
+		\begin{table}[]
+            \label{IRMA}
+            {\footnotesize
+            \caption{Risk Matrix for Ice Retrieval and Mobility Agent}
+            \centering
+            \begin{tabularx}{\linewidth}{XXXlXl}
+            \toprule
+            \textbf{Risk}                                            & \textbf{Cause}                                                                                                                 & \textbf{Impact}                                                                                                                           & \textbf{RBM}  & \textbf{Mitigation}                                                                                                                                                                                     & \textbf{RWM} \\
+            \midrule
+            Servo wiring fails & Wiring becomes disconnected or loose due to vibrations in the rocket & IRMA does not actuate or complete the mission & \cellcolor{orange!25} 1D & 1) Fasten wires securely and solder wires well \newline 2) Perform pull tests on wires & \cellcolor{green!25} 1E \\
+            Mechanism stops & Friction on the pins or between the nut and bolt & Claws don’t close all the way, thus never scooping any sample & \cellcolor{red!25} 1C & Lubricate IRMA & \cellcolor{green!25} 2E \\
+            Claws don’t seal sample & Misalignment of claws when scooping & Ice falls through claws, thus not obtaining any sample or little sample & \cellcolor{orange!25} 2D & Perform cyclic tests, run the mechanism for a long period of time & \cellcolor{green!25} 2E \\
+            IRMA breaks & Not enough material at weak points or material is not strong enough & No claw for the mission & \cellcolor{orange!25} 1D & 1) Perform pull tests and strength tests \newline 2) Use strong material and factor in a safety factor & \cellcolor{green!25} 1E \\
+            Software malfunction & Human Error in Code & Claw doesn’t open or close on command & \cellcolor{red!25} 2B & 1) Cycle power \newline 2) Simulate random test cases \newline 3) Severe debugging & \cellcolor{orange!25} 1D \\
+            \bottomrule
+            \end{tabularx}
+            }
+        \end{table}
 
 	\section{Avionics}\label{PL:Design:Avionics}
 		\subsection{Flight Controller}
