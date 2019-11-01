@@ -10,12 +10,42 @@
 
 			\subsection{Lowering Mechanism Release System}
 				To sever the winch line from the UAV, the team selected the method of burning a nylon string using an electric system. The other options were eliminated due to the complexity of the mechanical execution of the concepts; that is to say, the team feared that too many moving parts would lead to an overly complex release mechanism. The simplicity of severing a nylon string via heat appealed to the team because of its small risk of failure. The team plans on performing several rounds of tests to ensure that the electric system will be able to sever the nylon cord under any circumstances. 
-
+				\begin{table}[H]
+					\label{UAV Release Mechanism}
+					{\footnotesize
+					\caption{Risk Matrix for UAV Release Mechanism}
+					\centering
+					\begin{tabularx}{\linewidth}{XXXlXl}
+					\toprule
+					\textbf{Risk}                                            & \textbf{Cause}                                                                                                                 & \textbf{Impact}                                                                                                                           & \textbf{RBM}  & \textbf{Mitigation}                                                                                                                                                                                     & \textbf{RWM} \\
+					\midrule
+					Winch line becomes tangled around rocket during deployment & 1) Wind blows UAV or open rocket off-track \newline 2) Winch gets caught in the motors during deployment & UAV is not success-fully deployed; recovery of rocket is possibly comprom-ised & \cellcolor{orange!25} 2C & 1) Conduct extensive testing to ensure that release of winch line has adequate area \newline 2) Ensure using redundant systems that UAV is stable during descent from rocket body & \cellcolor{orange!25} 2D \\
+					Winch line is not completely severed & 1) Electric system is incapable of burning through the nylon cable \newline 2) Environmental effects on the nylon cable \newline 3) Positioning of cord relative to UAV doesn’t allow contact between cord and electric system & UAV is not success-fully deployed & \cellcolor{red!25} 2A & 1) Conduct extensive testing with electric systems and nylon cords to ensure the electric system is capable of severing the nylon cable & \cellcolor{orange!25} 2D \\
+					Winch does not lower UAV from the rocket & 1) Battery that powers the winch mechanism fails 2) Winch line is not properly coiled prior to launch \newline 3) Winch line becomes tangled within the fairing \newline 4) Drone gets jammed due to guide rails. & UAV is not success-fully deployed & \cellcolor{red!25} 2B & 1) Ensure soundness of electrical circuit upon which the winch mechanism is dependent \newline 2) Practice coiling of the nylon cord extensively prior to launch \newline 3) Verify the integrity of the coiling of the nylon cord multiple times prior to launch \newline 4) Minimize moving parts within the fairing, especially within the path that the cable will travel along 5) Test the alignment of the guide rails and cycle test lowering of the UAV, properly lubricate the rails and fasten the rails to the proper constraints & \cellcolor{orange!25} 2C \\
+					\bottomrule
+					\end{tabularx}
+					}
+				\end{table}
 
 	\section{Drone Structures}\label{PL:Design:Structures}
 		\subsection{Arm Configuration}
 			The drone will have four arms that rotate vertically such that the arms of the drone fit inside the fairing of the upper body tube. One other drone configuration was considered where the drone arms rotated sideways into itself, however this design was rejected primarily due to the inability for this configuration to fit inside the fairing. As a result, the vertical swinging arms chosen for the drone. These arms are placed on top of a hinge on the base of the drone with "bushings" placed on the ends. These bushings will align with aluminum poles connected to the base of the fairing which will make up the deployment system, which is described in another section.
-
+			\begin{table}[]
+                \label{vertical unfolding arms}
+                {\footnotesize
+                \caption{Risk Matrix for Vertical Unfolding Arms}
+                \centering
+                \begin{tabularx}{\linewidth}{XXXlXl}
+                \toprule
+                \textbf{Risk}                                            & \textbf{Cause}                                                                                                                 & \textbf{Impact}                                                                                                                           & \textbf{RBM}  & \textbf{Mitigation}                                                                                                                                                                                     & \textbf{RWM} \\
+                \midrule
+                Incomplete arm deployment & Insufficient potential energy storage by the spring mechanism and misalignment of locking mechanism & Ranges from UAV flight failure and possible damage to the Avionics due to falling & \cellcolor{red!25} 1C & 1) Ensure to choose the right springs that can provide enough energy \newline 2) Making sure the locking mechanism is fully secured before launch \newline 3) Right material selection to prevent plastic deformation & \cellcolor{orange!25} 3C \\
+                Failure to completely deploy drone due to frictions created by the guide rails & Incorrect selection of springs and guide rail material that could generate enough friction force to prevent UAV deployment & Being unable to retrieve the “ice samples” and cause the incomplete of the mission & \cellcolor{red!25} 2B & 1) Conduct ample material analysis on the selection and choosing materials having the lowest friction such as steel or aluminum \newline 2) Conduct multiple rounds of testing before manufacturing & \cellcolor{green!25} 3D \\
+                Plastic deformation of the structure at joints & Strong forces from the spring loaded arms and gravity assisted arm deployment creating significant shearing and tension at joints & The falling or partial detachment of one or multiple arms causing potential crashing of UAV & \cellcolor{orange!25} 2D & 1) Create sufficient damping systems to mitigate the unfolding forces \newline 2) Using carbon fiber components that have strong tensile strengths & \cellcolor{green!25} 3E \\
+                \bottomrule
+                \end{tabularx}
+                }
+            \end{table}
 		\subsection{Landing Legs}
 			The drone will additionally have landing legs that are attached mechanically to the arms of the drone. Each leg will be attached along the arm close to the rotors. Another bar will be attached from the base plate of the drone, connecting to the leg, forming a four-bar linkage. This allows the legs of the drone to forever be perpendicular to the ground no matter the direction that the arm faces. This also allows them to fold up into the body tube without the need for additional servo motors or electrical components. Another design of static legs attached to the base plate of the drone was considered, but the distance between legs were so small that the drone was unstable, taking into account the relatively large length of the arm.
 	
@@ -31,7 +61,24 @@
 		The next iteration of IRMA, featuring the worm gear mechanism, had several issues. The cost of the worm gear mechanism was too high for further consideration. In addition, the weight of the mechanism did not satisfy the mass budget for the UAV. 
 
 		After considering the restrictions of the other designs, the team has decided to move forward with the pin joint mechanism. Overall, the pin joint mechanism provides the most manufacturability and practicality of the considered designs. 
-
+		\begin{table}[]
+            \label{IRMA}
+            {\footnotesize
+            \caption{Risk Matrix for Ice Retrieval and Mobility Agent}
+            \centering
+            \begin{tabularx}{\linewidth}{XXXlXl}
+            \toprule
+            \textbf{Risk}                                            & \textbf{Cause}                                                                                                                 & \textbf{Impact}                                                                                                                           & \textbf{RBM}  & \textbf{Mitigation}                                                                                                                                                                                     & \textbf{RWM} \\
+            \midrule
+            Servo wiring fails & Wiring becomes disconnected or loose due to vibrations in the rocket & IRMA does not actuate or complete the mission & \cellcolor{orange!25} 1D & 1) Fasten wires securely and solder wires well \newline 2) Perform pull tests on wires & \cellcolor{green!25} 1E \\
+            Mechanism stops & Friction on the pins or between the nut and bolt & Claws don’t close all the way, thus never scooping any sample & \cellcolor{red!25} 1C & Lubricate IRMA & \cellcolor{green!25} 2E \\
+            Claws don’t seal sample & Misalignment of claws when scooping & Ice falls through claws, thus not obtaining any sample or little sample & \cellcolor{orange!25} 2D & Perform cyclic tests, run the mechanism for a long period of time & \cellcolor{green!25} 2E \\
+            IRMA breaks & Not enough material at weak points or material is not strong enough & No claw for the mission & \cellcolor{orange!25} 1D & 1) Perform pull tests and strength tests \newline 2) Use strong material and factor in a safety factor & \cellcolor{green!25} 1E \\
+            Software malfunction & Human Error in Code & Claw doesn’t open or close on command & \cellcolor{red!25} 2B & 1) Cycle power \newline 2) Simulate random test cases \newline 3) Severe debugging & \cellcolor{orange!25} 1D \\
+            \bottomrule
+            \end{tabularx}
+            }
+        \end{table}
 
 	\section{Avionics}\label{PL:Design:Avionics}
 		\subsection{Flight Controller}
