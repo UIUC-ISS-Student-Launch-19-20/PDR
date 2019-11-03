@@ -1,0 +1,150 @@
+\chapter{Leading Design of the Payload}
+
+	\section{Deployment}\label{PL:Design:Deployment}
+		The challenge posed to the team regarding the release of the payload is to deploy the UAV in the proper orientation for flight. The UAV requires a fast, consistent, and reliable release mechanism to deploy it from the rocket. During descent, the UAV will be deployed out of the top of the rocket as described below. 
+		\subsection{Guide Rails}
+			The UAV will be secured to the rocket by a system of guide rails. These rails will be connected to both the base of the fairing section and the retracted arms of the UAV. As the UAV is lowered out of the rocket, the arms will be released into the open position and ready for operation, pending approval from the RSO. The lowering of the UAV will be described by the winch system below.  
+
+			\subsection{Lowering Mechanism}
+				To lower the UAV out of the rocket body, the team has chosen to use a servo motor to power the winch. The team found this option suitable because it will allow the drone to be lowered at a constant speed within the safety margin. The team weighed the success of the mission over the complexities involved with integrating the servo powered winch system. In the case of electrical failure relating to the winch’s servo, the UAV will be lowered by gravity assisted by mechanical resistance from the dead servo. Leveraging the mechanical resistance, the servo-winch system will be within the safety margin and able to operate in the case of servo failure.
+
+			\subsection{Lowering Mechanism Release System}
+				To sever the winch line from the UAV, the team selected the method of burning a nylon string using an electric system. The other options were eliminated due to the complexity of the mechanical execution of the concepts; that is to say, the team feared that too many moving parts would lead to an overly complex release mechanism. The simplicity of severing a nylon string via heat appealed to the team because of its small risk of failure. The team plans on performing several rounds of tests to ensure that the electric system will be able to sever the nylon cord under any circumstances. 
+				\begin{table}[H]
+					\label{UAV Release Mechanism}
+					{\footnotesize
+					\caption{Risk Matrix for UAV Release Mechanism}
+					\centering
+					\begin{tabularx}{\linewidth}{XXXlXl}
+					\toprule
+					\textbf{Risk}                                            & \textbf{Cause}                                                                                                                 & \textbf{Impact}                                                                                                                           & \textbf{RBM}  & \textbf{Mitigation}                                                                                                                                                                                     & \textbf{RWM} \\
+					\midrule
+					Winch line becomes tangled around rocket during deployment & 1) Wind blows UAV or open rocket off-track \newline 2) Winch gets caught in the motors during deployment & UAV is not success-fully deployed; recovery of rocket is possibly comprom-ised & \cellcolor{orange!25} 2C & 1) Conduct extensive testing to ensure that release of winch line has adequate area \newline 2) Ensure using redundant systems that UAV is stable during descent from rocket body & \cellcolor{orange!25} 2D \\
+					Winch line is not completely severed & 1) Electric system is incapable of burning through the nylon cable \newline 2) Environmental effects on the nylon cable \newline 3) Positioning of cord relative to UAV doesn’t allow contact between cord and electric system & UAV is not success-fully deployed & \cellcolor{red!25} 2A & 1) Conduct extensive testing with electric systems and nylon cords to ensure the electric system is capable of severing the nylon cable & \cellcolor{orange!25} 2D \\
+					Winch does not lower UAV from the rocket & 1) Battery that powers the winch mechanism fails 2) Winch line is not properly coiled prior to launch \newline 3) Winch line becomes tangled within the fairing \newline 4) Drone gets jammed due to guide rails. & UAV is not success-fully deployed & \cellcolor{red!25} 2B & 1) Ensure soundness of electrical circuit upon which the winch mechanism is dependent \newline 2) Practice coiling of the nylon cord extensively prior to launch \newline 3) Verify the integrity of the coiling of the nylon cord multiple times prior to launch \newline 4) Minimize moving parts within the fairing, especially within the path that the cable will travel along 5) Test the alignment of the guide rails and cycle test lowering of the UAV, properly lubricate the rails and fasten the rails to the proper constraints & \cellcolor{orange!25} 2C \\
+					\bottomrule
+					\end{tabularx}
+					}
+				\end{table}
+
+	\section{Drone Structures}\label{PL:Design:Structures}
+		\subsection{Arm Configuration}
+			The drone will have four arms that rotate vertically such that the arms of the drone fit inside the fairing of the upper body tube. One other drone configuration was considered where the drone arms rotated sideways into itself, however this design was rejected primarily due to the inability for this configuration to fit inside the fairing. As a result, the vertical swinging arms chosen for the drone. These arms are placed on top of a hinge on the base of the drone with "bushings" placed on the ends. These bushings will align with aluminum poles connected to the base of the fairing which will make up the deployment system, which is described in another section.
+			\begin{table}[]
+                \label{vertical unfolding arms}
+                {\footnotesize
+                \caption{Risk Matrix for Vertical Unfolding Arms}
+                \centering
+                \begin{tabularx}{\linewidth}{XXXlXl}
+                \toprule
+                \textbf{Risk}                                            & \textbf{Cause}                                                                                                                 & \textbf{Impact}                                                                                                                           & \textbf{RBM}  & \textbf{Mitigation}                                                                                                                                                                                     & \textbf{RWM} \\
+                \midrule
+                Incomplete arm deployment & Insufficient potential energy storage by the spring mechanism and misalignment of locking mechanism & Ranges from UAV flight failure and possible damage to the Avionics due to falling & \cellcolor{red!25} 1C & 1) Ensure to choose the right springs that can provide enough energy \newline 2) Making sure the locking mechanism is fully secured before launch \newline 3) Right material selection to prevent plastic deformation & \cellcolor{orange!25} 3C \\
+                Failure to completely deploy drone due to frictions created by the guide rails & Incorrect selection of springs and guide rail material that could generate enough friction force to prevent UAV deployment & Being unable to retrieve the “ice samples” and cause the incomplete of the mission & \cellcolor{red!25} 2B & 1) Conduct ample material analysis on the selection and choosing materials having the lowest friction such as steel or aluminum \newline 2) Conduct multiple rounds of testing before manufacturing & \cellcolor{green!25} 3D \\
+                Plastic deformation of the structure at joints & Strong forces from the spring loaded arms and gravity assisted arm deployment creating significant shearing and tension at joints & The falling or partial detachment of one or multiple arms causing potential crashing of UAV & \cellcolor{orange!25} 2D & 1) Create sufficient damping systems to mitigate the unfolding forces \newline 2) Using carbon fiber components that have strong tensile strengths & \cellcolor{green!25} 3E \\
+                \bottomrule
+                \end{tabularx}
+                }
+			\end{table}
+			
+		\subsection{Landing Legs}
+			The drone will additionally have landing legs that are attached mechanically to the arms of the drone. Each leg will be attached along the arm close to the rotors. Another bar will be attached from the base plate of the drone, connecting to the leg, forming a four-bar linkage. This allows the legs of the drone to forever be perpendicular to the ground no matter the direction that the arm faces. This also allows them to fold up into the body tube without the need for additional servo motors or electrical components. Another design of static legs attached to the base plate of the drone was considered, but the distance between legs were so small that the drone was unstable, taking into account the relatively large length of the arm.
+			\section{Drone Structures}\label{PL:Design:Structures}
+			\subsection{Arm Configuration}
+				The drone will have four arms that rotate vertically such that the arms of the drone fit inside the fairing of the upper body tube. One other drone configuration was considered where the drone arms rotated sideways into itself, however this design was rejected primarily due to the inability for this configuration to fit inside the fairing. As a result, the vertical swinging arms chosen for the drone. These arms are placed on top of a hinge on the base of the drone with "bushings" placed on the ends. These bushings will align with aluminum poles connected to the base of the fairing which will make up the deployment system, which is described in another section.
+				\begin{table}[H]
+					{\footnotesize
+					\caption{Risk Matrix for Retractable Landing Mechanism}
+					\centering
+					\begin{tabularx}{\linewidth}{XXXlXl}
+					\toprule
+					Risk & Cause & Impact & RBM & Mitigation & RWM \\ \midrule
+					Incomplete landing leg unfolding & Miscalculations of the Parallel Four Bar Linkage dimensions & Instability of the UAV during “ice sample” retrieval and risk of unable to retrieve the desired amount of sample & \cellcolor{orange!25} 3C & 1) Repetitive testing and prototyping of the RLM system 2) Using simple mechanical properties and reduce system complexities & 4D \\
+					Horizontal instability & Lack of horizontal constraints and supports at various joints & Potential UAV body tipping and leg failure which leads to mission incompletion & \cellcolor{orange!25} 2C & 1) Creating horizontal support at joints 2) Potential cone shape padding at landing leg roots & 4E \\
+					Plastic deformation of legs during landing & Insufficient material strength of legs and shearing caused by moments about joints due to weight & One or multiple landing leg failures which could result in mission incompletion & \cellcolor{green!25} 2E & 1) Ample material testing and research 2) Continuous stress and shear testing in the construction process & 4E \\
+					Leg joint failures during flight & Vibrations throughout the rocket during ascent and ejection charge initiation & Possible damage to landing legs and increase in horizontal instabilities & \cellcolor{green!25} 3D & 1) Vibration testing to alleviate the negative effects during ascent 2) Repetitive testing of joint securement system & 4E \\
+					\bottomrule
+				 \end{tabularx}
+				 }
+				\end{table}
+		\subsection{Ice Recovery and Mobility Agent}
+			The pin joint design was chosen because the design has the best sturdiness, manufacturability, and because of its absence of a sliding motion. The bolt in the pin joint mechanism makes the retrieval mechanism sturdy in the direction going into and out of the page, perpendicular to the scooping motion. The rod connecting the drone to the scoop mechanism keeps a point on the scoop fixed to the drone at all times so the scoop is not flimsy. The connecting rod creates sturdiness in the direction parallel to the scooping motion because the rod is a fixed length. This allows control over how much the scoop can open or close based on how high the bottom of the connecting rod is on the bolt. Every part on the pin joint mechanism is thick with few potential points for failure. 
+
+			The pin joint mechanism was also chosen due to its ability to convert rotational motion into translational motion. Instead of moving a mechanism up and down, which would not be feasible given the space inside the rocket, the team decided that a rotating motion to actuate the scoop would be ideal. This way there can just be a servo at the top instead of creating a new mechanism to slide up and down a railing. The team decided that having a nut on the bolt would be easiest to manufacture and simplest because it requires the least amount of moving parts, and the tolerances are easiest to fit into the bolt. The pin joint idea also allows for the easiest movement without friction because the moving part is the bolt which allows the mechanism to stay but move easily on command.
+
+			The biggest risk to the current design is that the pin joint mechanism relies on an electrical servo which creates another method of failure if the avionics fail to perform as intended. Another problem is that the pin doesn’t entirely eliminate friction. The pin joint mechanism could theoretically get stuck if the servo force is not as strong as the frictional force on the pin. Another disadvantage is that there is little material on the other side of the pin from the scoop connecting the rod to the scoop. To compensate for this, strong material will be used like metal, and there will be testing performed to ensure that there is enough material with a safety factor.
+
+			During the prototyping phase of the sliding pin joint mechanism, the team located a structural defect along the slit in the claw of IRMA. The team considered the possibility of the claw snapping along the slit when the mechanism is actuated. Furthermore, the team analyzed the feasibility of reducing friction between the joint and the claw and determined it to be impractical. After serious consideration, the team decided this method of ice sampling would not be manufacturable and structurally weak.
+
+			The next iteration of IRMA, featuring the worm gear mechanism, had several issues. The cost of the worm gear mechanism was too high for further consideration. In addition, the weight of the mechanism did not satisfy the mass budget for the UAV. 
+
+			After considering the restrictions of the other designs, the team has decided to move forward with the pin joint mechanism. Overall, the pin joint mechanism provides the most manufacturability and practicality of the considered designs. 
+			\begin{table}[]
+				\label{IRMA}
+				{\footnotesize
+				\caption{Risk Matrix for Ice Retrieval and Mobility Agent}
+				\centering
+				\begin{tabularx}{\linewidth}{XXXlXl}
+				\toprule
+				\textbf{Risk}                                            & \textbf{Cause}                                                                                                                 & \textbf{Impact}                                                                                                                           & \textbf{RBM}  & \textbf{Mitigation}                                                                                                                                                                                     & \textbf{RWM} \\
+				\midrule
+				Servo wiring fails & Wiring becomes disconnected or loose due to vibrations in the rocket & IRMA does not actuate or complete the mission & \cellcolor{orange!25} 1D & 1) Fasten wires securely and solder wires well \newline 2) Perform pull tests on wires & \cellcolor{green!25} 1E \\
+				Mechanism stops & Friction on the pins or between the nut and bolt & Claws don’t close all the way, thus never scooping any sample & \cellcolor{red!25} 1C & Lubricate IRMA & \cellcolor{green!25} 2E \\
+				Claws don’t seal sample & Misalignment of claws when scooping & Ice falls through claws, thus not obtaining any sample or little sample & \cellcolor{orange!25} 2D & Perform cyclic tests, run the mechanism for a long period of time & \cellcolor{green!25} 2E \\
+				IRMA breaks & Not enough material at weak points or material is not strong enough & No claw for the mission & \cellcolor{orange!25} 1D & 1) Perform pull tests and strength tests \newline 2) Use strong material and factor in a safety factor & \cellcolor{green!25} 1E \\
+				Software malfunction & Human Error in Code & Claw doesn’t open or close on command & \cellcolor{red!25} 2B & 1) Cycle power \newline 2) Simulate random test cases \newline 3) Severe debugging & \cellcolor{orange!25} 1D \\
+				\bottomrule
+				\end{tabularx}
+				}
+			\end{table}
+
+	\section{Avionics}\label{PL:Design:Avionics}
+		\subsection{Flight Controller}
+		The team examined the benefits and drawbacks of each flight controller: the Navio2, the ArduPilot, and the Pixhawk. Factors such as size and mass were taken into account but had minimal effect on the decision-making process. All three boards are compact, light and of a sturdy build. The differences could easily be accounted for by minor tweaks in the payload’s structure. Due to the irrelevance of these factors, the decision process was based predominantly by the computational capabilities of the controllers. 
+
+		The ability to connect to the Raspberry Pi makes both the Pixhawk and the Navio2 more reliable than an individual ArduPilot due to the extensive experience that the drone community has with computer vision systems united with a Raspberry Pi. The ArduPilot was therefore eliminated as a viable option. 
+		
+		The Pixhawk and Navio2 were both viable controllers, each with their own benefits, such as higher reliability due to their communication with a Raspberry Pi and relatively easy computer vision integration because of the Raspberry Pi’s systems. One important difference between the Pixhawk and the Navio2 was how easy a computer vision system would be to manage. Although both systems have been used extensively for computer vision, the Pixhawk would require manual setup hardware-wise and with configuration files to establish a UART bridge. The Navio2, however, would require minimal setup due to its design including the Raspberry Pi as part of the flight controller. Both controllers would be able to provide the adequate amount of power that a computer vision guidance system would need, because of the Raspberry Pi’s high computing power and memory. 
+		
+		Ultimately, the Navio2’s reliability surpassed the Pixhawk’s because of the Navio2’s safer integration thanks to the extensive testing that third party organizations, such as Navio, have invested into their own products. The Navio2 was therefore selected as the flight controller most fitting for the mission parameters. 
+		\begin{table}[H]
+            \label{Flight Controller}
+            {\footnotesize
+            \caption{Risk Matrix for the Flight Controller}
+            \centering
+            \begin{tabularx}{\linewidth}{XXXlXl}
+            \toprule
+            \textbf{Risk}                                            & \textbf{Cause}                                                                                                                 & \textbf{Impact}                                                                                                                           & \textbf{RBM}  & \textbf{Mitigation}                                                                                                                                                                                     & \textbf{RWM} \\
+            \midrule
+            UART bridge disconnects and stops communication & 1) High vibrations during launch and deployment interfere with physical connection.                                  & Complete loss of UAV control and inability to complete mission.                                                                 & \cellcolor{red!25} 2B  & 1) Mechanically secure physical connections of UART port using adhesives and 3D printed constraints. \newline 2) Surround ports with padding to ensure minimal movement.                               & \cellcolor{orange!25} 2D  \\
+            Battery failure leads to loss of power          & 1) High vibrations lead to battery disconnecting from flight controller. \newline 2) LiPo batteries overheat                   & 1) Complete loss of UAV control and inability to complete mission. \newline 2) Permanent damage to UAV structure and peripheral sensors. & \cellcolor{red!25} 2B  & 1) Mechanically secure physical connections of batteries using adhesives and 3D printed constraints. \newline 2) Monitor LiPo batteries carefully during pre-flight charging to prohibit overcharging. & \cellcolor{orange!25} 2D  \\
+            Noisy data is fed to control loop.              & Turbulence during flight causes instability for UAV airframe, resulting in control algorithms responding improperly. & 1) Unstable flight results in loss of sample from IRMA. \newline 2) UAV undergoes high-impact landing.                                & \cellcolor{orange!25} 2C  & 1) Use redundant instruments and low-pass filters to avoid collection of noisy data. \newline 2) Implement fail-safe system that instruct UAV to hover when turbulent flight modes occur.              & \cellcolor{orange!25} 2D \\
+            \bottomrule
+            \end{tabularx}
+            }
+        \end{table}
+		\subsection{Computer Vision}
+		The team will be investigating an algorithmic and machine learning based approach of integrating computer vision in the vehicle’s guidance system. 
+
+The team’s next steps towards deciding the computer vision implementation is to determine which computer vision method will control the drone. The team plans to start by programming both the algorithmic and deep learning approaches to computer vision, possibly through the use of the OpenCV or TensorFlow libraries on Python. Then, after both methods are programmed, the team aims to test them on the UAV.. This can be done by setting up an excavation area similar to the one to be used in the competition. Once the UAV is released, it should be able to navigate to the excavation area autonomously. Further extensive testing can be accomplished by putting “ice” samples into the excavation area and varying the ice depth at different points. Theoretically, once the drone reaches the excavation site, it should be able to recognize where the ice depth is greatest and then approach the site and retrieve the sample.
+
+The final decision of which approach to implement for the competition will be based off of the results of these trials. The team will be testing for factors such as computational load, accuracy, speed, and reliability amongst others. The computer vision method with the best results will be further refined and used for the competition.
+
+Using computer vision to guide the drone has numerous risks associated with it. With careful planning and testing, these risks can be accounted for to increase the probability of mission success.
+\begin{table}[]
+	\label{computer vision}
+	{\footnotesize
+	\caption{Risk Matrix for Computer Vision}
+	\centering
+	\begin{tabularx}{\linewidth}{XXXlXl}
+	\toprule
+	\textbf{Risk}                                            & \textbf{Cause}                                                                                                                 & \textbf{Impact}                                                                                                                           & \textbf{RBM}  & \textbf{Mitigation}                                                                                                                                                                                     & \textbf{RWM} \\
+	\midrule
+	Algorithm does not recognize excavation site & 1) Incorrect implementation of logic in algorithm relating to classification of excavation sites \newline 2) Not enough images classifying excavation sites are fed to train the neural network to a reliable state & UAV does not navigate to excavation site with complete accuracy & \cellcolor{red!25} 2A & 1) Conduct extensive testing to ensure that algorithm recognizes excavation site accurately and reliably \newline 2) Algorithm reverts to GPS based positioning to navigate to excavation area if excavation site is not recognized. & \cellcolor{green!25} 3D \\
+	Algorithm falsely detects an excavation area & 1) Incorrect implementation of logic in algorithm relating to differentiation between excavation sites \newline 2) Not enough images are fed to train the neural network reliably & UAV fails to navigate to correct excavation site and flies to wrong site instead & \cellcolor{red!25} 2A & 1) Conduct extensive testing to ensure that algorithm recognizes excavation site accurately and reliably without detecting incorrect sites \newline 2) Algorithm is manually reverted to GPS based positioning to navigate to correct excavation area & \cellcolor{orange!25} 3C \\
+	Algorithm does not run at all or runs slowly & 1) Flight computer is disconnected from power source \newline 2) Algorithm is inefficient through redundant computation or overuse of storage & UAV is not able to recognize and navigate to the excavation site & \cellcolor{orange!25} 2C & 1) Ensure UAV is connected securely to power source, and is able to stay secured during flight \newline 2) Test algorithm during flight to ensure it does not overuse processing power or storage & \cellcolor{green!25} 2E \\
+	Algorithm causes Raspberry Pi to malfunction & 1) Algorithm encounters stimulus outside of its training bounds \newline 2) Inaccurate data is fed to algorithm during flight. & UAV malfunctions and loses ability to stay aloft & \cellcolor{red!25} 1C & 1) Conduct extensive testing and identify when Raspberry Pi malfunctions \newline 2) Identify edge cases that may cause malfunctions and account for them in algorithmic approach \newline 3) Catch errors in runtime and deal with accordingly to maintain mission feasibility & \cellcolor{green!25} 1E \\
+	\bottomrule
+	\end{tabularx}
+	}
+\end{table}
